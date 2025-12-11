@@ -1,0 +1,35 @@
+import math # Necesario para la versión optimizada
+
+def es_primo(num):
+    """
+    Función que determina si un número entero es primo.
+    """
+    # Los números menores o iguales a 1 no son primos
+    if num <= 1:
+        return False
+    # El 2 es el único número primo par
+    if num == 2:
+        return True
+    # Si es par y mayor que 2, no es primo
+    if num % 2 == 0:
+        return False
+
+    # Optimización: solo necesitamos verificar divisores impares hasta la raíz cuadrada del número
+    # El rango va desde 3 hasta int(math.sqrt(num)) + 1, con pasos de 2 (solo impares)
+    for i in range(3, int(math.sqrt(num)) + 1, 2):
+        if num % i == 0:
+            return False # Si encuentra un divisor, no es primo
+    return True # Si el bucle termina sin encontrar divisores, es primo
+
+# Ejemplo de uso
+numero_a_verificar = 17
+if es_primo(numero_a_verificar):
+    print(f"{numero_a_verificar} es un número primo.")
+else:
+    print(f"{numero_a_verificar} no es un número primo.")
+
+numero_a_verificar_2 = 15
+if es_primo(numero_a_verificar_2):
+    print(f"{numero_a_verificar_2} es un número primo.")
+else:
+    print(f"{numero_a_verificar_2} no es un número primo.")
