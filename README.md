@@ -1,2 +1,0 @@
-# Espacio-GAM
-Proyectos
